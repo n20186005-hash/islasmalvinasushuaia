@@ -15,7 +15,7 @@ export type Translations = {
   monuments: { title: string; intro: string; items: { name: string; description: string }[] };
   contrast: { title: string; intro: string; before: string; after: string };
   visiting: { title: string; intro: string; hours: { title: string; content: string; note: string }; price: { title: string; content: string; note: string }; duration: { title: string; content: string; note: string }; tips: { title: string; items: string[] }; essentials: { icon: string; title: string; text: string }[] };
-  transportation: { title: string; airport: { title: string; content: string; options: TransportOption[] }; publicTransport?: { title: string; content: string; options: { name: string; description: string; steps: string[] }[] }; city: { title: string; content: string; steps: string[] }; tips: { title: string; items: string[] } };
+  transportation: { title: string; airport: { title: string; content: string; options: TransportOption[] }; publicTransport?: { title: string; content: string; options: { name: string; description: string; steps: string[] }[] }; city: { title: string; content: string; steps: string[] }; otherWays: { title: string; content: string; steps: string[] }; tips: { title: string; items: string[] } };
   gallery: { title: string; viewMore: string; categories: { key: string; label: string }[] };
   reviews: { title: string; subtitle: string; viewMore: string; nearbyTitle: string; nearbyIntro: string; nearbyItems: { name: string; description: string }[] };
   faq: { title: string; subtitle: string; items: FAQItem[] };
@@ -61,15 +61,6 @@ const LINK_DEFS: { url: string; names: Record<Locale, string> }[] = [
       en: "Municipality of Ushuaia Official Website",
       es: "Municipalidad de Ushuaia - Sitio Oficial",
       it: "Comune di Ushuaia - Sito Ufficiale",
-    },
-  },
-  {
-    url: "https://www.argentina.gob.ar/cancilleria/malvinas",
-    names: {
-      zh: "阿根廷国家政府官网 - 马尔维纳斯问题专页",
-      en: "Argentina National Government - Malvinas Affairs",
-      es: "Gobierno de Argentina - Cancillería Malvinas",
-      it: "Governo dell'Argentina - Affari Malvinas",
     },
   },
 ];
@@ -198,6 +189,7 @@ export const translations: Record<Locale, Translations> = {
         { name: "出租车 / Uber（最推荐）", price: "约 10–15 分钟", time: "4 公里", steps: ["从机场出口乘坐出租车或网约车", "沿 3 号国道（RN-3）北上进入市区", "告诉司机前往「Plaza Islas Malvinas」或「Monumento a los Caídos en Malvinas」", "约 10–15 分钟即可到达"] }
       ]},
       city: { title: "🏘️ 从乌斯怀亚市中心步行前往", content: "马尔维纳斯广场位于乌斯怀亚市中心**滨海步道（Costanera）**沿线，从市中心主街圣马丁大街（Av. San Martín）步行约 **5–10 分钟**即可到达。", steps: ["从圣马丁大街向南步行至海边", "到达滨海步道（Costanera）后向西（右转）走", "步行约 300 米即可看到广场上的阿根廷国旗和长明火", "广场入口就在滨海步道旁"] },
+      otherWays: { title: "🧭 其他方式到景点", content: "如果您不在市中心、或希望减少步行距离，可以参考以下更灵活的到达方式。实际时间会随天气、路况与活动管制而变化。", steps: ["**出租车 / 网约车**：直接告知司机前往「Plaza Islas Malvinas」或「Monumento a los Caídos en Malvinas」，通常从市区 5–15 分钟可达", "**自驾**：沿 RN-3 或市区道路前往滨海步道（Costanera）一带，周边多为路边短暂停车位；纪念日前后可能临时交通管制", "**当地公交**：根据当日线路与站点信息，在靠近 Costanera 的站点下车后步行数分钟即可到达", "**骑行 / 步行**：天气良好时可沿 Costanera 观景抵达；海风较强、路面可能湿滑，请注意保暖与防雨"] },
       tips: { title: "交通贴士", items: [
         "乌斯怀亚市区不大，**几乎所有市中心酒店都能步行到达广场**",
         "如果住在较远的地区（如半山腰的酒店），建议打车或乘坐当地公交",
@@ -374,6 +366,7 @@ export const translations: Record<Locale, Translations> = {
         { name: "Taxi / Uber (Recommended)", price: "approx. 10–15 min", time: "4 km", steps: ["Take a taxi or ride-share from the airport exit", "Follow National Route 3 (RN-3) north into the city", "Tell the driver you're going to 'Plaza Islas Malvinas' or 'Monumento a los Caídos en Malvinas'", "You'll arrive in about 10–15 minutes"] }
       ]},
       city: { title: "🏘️ On Foot from Downtown Ushuaia", content: "Plaza Islas Malvinas sits along Ushuaia's downtown **waterfront promenade (Costanera)**. From the main street, Avenida San Martín, it is a pleasant **5–10 minute walk**.", steps: ["From Av. San Martín, walk south towards the waterfront", "Reach the coastal promenade (Costanera) and turn right (west)", "Walk about 300 metres — you'll soon see the Argentine flag and the Eternal Flame", "The plaza entrance is directly on the promenade"] },
+      otherWays: { title: "🧭 Other Ways to Reach the Plaza", content: "If you're starting outside the city centre or prefer to limit walking, these options provide flexible ways to reach the monument area. Times vary with weather, traffic and possible road restrictions.", steps: ["**Taxi / ride-hail**: ask to go to 'Plaza Islas Malvinas' or 'Monumento a los Caídos en Malvinas' — typically 5–15 minutes from central areas", "**Self-driving**: approach via RN-3 or city streets towards the waterfront (Costanera); curbside short-term parking is common, but restrictions may apply around commemorative events", "**Local bus**: check current routes and stops for the Costanera/downtown area; get off near the waterfront and walk a few minutes", "**Cycling / walking**: follow the Costanera for a scenic approach; be prepared for strong winds and wet surfaces"] },
       tips: { title: "Transport Tips", items: [
         "Ushuaia's downtown is compact — **almost all city-centre hotels are within walking distance of the plaza**",
         "If staying in outlying areas (e.g. hillside hotels), take a taxi or local bus",
@@ -550,6 +543,7 @@ export const translations: Record<Locale, Translations> = {
         { name: "Taxi / Uber (Recomendado)", price: "aprox. 10–15 min", time: "4 km", steps: ["Tomar un taxi o remís desde la salida del aeropuerto", "Seguir por la Ruta Nacional 3 (RN-3) hacia el norte hasta la ciudad", "Indicar al conductor 'Plaza Islas Malvinas' o 'Monumento a los Caídos en Malvinas'", "Se llega en unos 10–15 minutos"] }
       ]},
       city: { title: "🏘️ A Pie desde el Centro de Ushuaia", content: "La Plaza Islas Malvinas se encuentra sobre la **costanera** del centro de Ushuaia. Desde la calle principal, Avenida San Martín, es una agradable caminata de **5–10 minutos**.", steps: ["Desde Av. San Martín caminar hacia el sur en dirección a la costa", "Llegar a la costanera y girar a la derecha (hacia el oeste)", "Caminar unos 300 metros — pronto se verán la bandera argentina y la Llama Eterna", "La entrada a la plaza está directamente sobre la costanera"] },
+      otherWays: { title: "🧭 Otras Formas de Llegar", content: "Si salís desde zonas fuera del centro o preferís caminar menos, estas alternativas pueden ayudarte a llegar al área del monumento. Los tiempos varían según el clima, el tránsito y posibles restricciones.", steps: ["**Taxi / transporte por app**: pedí ir a 'Plaza Islas Malvinas' o 'Monumento a los Caídos en Malvinas' — normalmente 5–15 minutos desde zonas céntricas", "**En auto**: accedé por RN-3 o calles de la ciudad hacia la costanera; suele haber estacionamiento breve en la vía pública, pero puede haber limitaciones durante actos conmemorativos", "**Colectivo**: consultá los recorridos y paradas vigentes hacia la costanera/centro; bajate cerca de la costa y caminá unos minutos", "**En bici / a pie**: el trayecto por la costanera es escénico, pero hay viento fuerte y el piso puede estar húmedo"] },
       tips: { title: "Consejos de Transporte", items: [
         "El centro de Ushuaia es compacto — **casi todos los hoteles céntricos están a distancia peatonal de la plaza**",
         "Si se aloja en zonas alejadas (ej. hoteles en la ladera), tomar un taxi o colectivo local",
@@ -726,6 +720,7 @@ export const translations: Record<Locale, Translations> = {
         { name: "Taxi / Uber (Consigliato)", price: "ca. 10–15 min", time: "4 km", steps: ["Prendere un taxi o remís dall'uscita dell'aeroporto", "Seguire la Strada Nazionale 3 (RN-3) verso nord fino alla città", "Indicare al conducente 'Plaza Islas Malvinas' o 'Monumento a los Caídos en Malvinas'", "Si arriva in circa 10–15 minuti"] }
       ]},
       city: { title: "🏘️ A Piedi dal Centro di Ushuaia", content: "La Plaza Islas Malvinas si trova sulla **costanera** del centro di Ushuaia. Dalla via principale, Avenida San Martín, è una piacevole passeggiata di **5–10 minuti**.", steps: ["Da Av. San Martín camminare verso sud in direzione della costa", "Raggiungere la costanera e girare a destra (verso ovest)", "Camminare per circa 300 metri — si vedranno presto la bandiera argentina e la Fiamma Eterna", "L'ingresso della piazza è direttamente sulla costanera"] },
+      otherWays: { title: "🧭 Altri Modi per Arrivare", content: "Se parti da zone fuori dal centro o preferisci ridurre la camminata, queste alternative possono aiutarti a raggiungere l'area del monumento. I tempi variano in base a meteo, traffico e possibili restrizioni.", steps: ["**Taxi / ride-hailing**: chiedi di andare a 'Plaza Islas Malvinas' o 'Monumento a los Caídos en Malvinas' — in genere 5–15 minuti dalle zone centrali", "**In auto**: avvicinati tramite RN-3 o strade urbane verso la costanera; è comune trovare parcheggio breve lungo la strada, ma possono esserci limitazioni durante eventi commemorativi", "**Autobus locale**: verifica linee e fermate aggiornate verso la costanera/centro; scendi vicino al lungomare e cammina pochi minuti", "**In bici / a piedi**: percorso panoramico lungo la costanera; considera vento forte e possibili superfici bagnate"] },
       tips: { title: "Consigli di Trasporto", items: [
         "Il centro di Ushuaia è compatto — **quasi tutti gli hotel del centro sono a distanza pedonale dalla piazza**",
         "Se si alloggia in zone periferiche (es. hotel in collina), prendere un taxi o autobus locale",

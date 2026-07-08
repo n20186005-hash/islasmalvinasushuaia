@@ -69,6 +69,11 @@ const transportSections = [
     content: t.transportation.city.content,
     steps: t.transportation.city.steps,
   },
+  {
+    title: t.transportation.otherWays.title,
+    content: t.transportation.otherWays.content,
+    steps: t.transportation.otherWays.steps,
+  },
 ];
 ---
 
@@ -323,13 +328,13 @@ const transportSections = [
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;">
         <div>
           <div style="border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.1);margin-bottom:1rem;">
-            <img src="https://islasmalvinasushuaia.com/gallery/plaza-islands-malvinas-01.jpg" alt="Plaza Islas Malvinas memorial wall" style="width:100%;height:auto;display:block;" />
+            <img src="https://islasmalvinasushuaia.com/gallery/plaza-islands-malvinas-15.jpg" alt="Plaza Islas Malvinas memorial wall" style="width:100%;height:auto;display:block;" />
           </div>
           <p style="text-align:center;font-size:0.95rem;color:var(--color-earth-soft);font-weight:600;">{t.contrast.before}</p>
         </div>
         <div>
           <div style="border-radius:8px;overflow:hidden;border:1px solid rgba(0,0,0,0.1);margin-bottom:1rem;">
-            <img src="https://islasmalvinasushuaia.com/gallery/plaza-islands-malvinas-15.jpg" alt="Beagle Channel panorama from Plaza Islas Malvinas" style="width:100%;height:auto;display:block;" />
+            <img src="https://islasmalvinasushuaia.com/gallery/plaza-islands-malvinas-12.jpg" alt="Beagle Channel panorama from Plaza Islas Malvinas" style="width:100%;height:auto;display:block;" />
           </div>
           <p style="text-align:center;font-size:0.95rem;color:var(--color-earth-soft);font-weight:600;">{t.contrast.after}</p>
         </div>
@@ -646,19 +651,6 @@ const transportSections = [
             </svg>
           </a>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Band -->
-  <section class="cta-band">
-    <div class="cta-band-inner reveal">
-      <h2 class="cta-band-title">{t.ctaBand.title}</h2>
-      <p class="cta-band-subtitle">{t.ctaBand.subtitle}</p>
-      <div class="cta-band-buttons">
-        <a href="#visiting" class="cta-btn cta-btn-primary">{t.ctaBand.buttons[0]}</a>
-        <a href="https://turismoushuaia.com/actividad/espacio-pensar-malvinas/" target="_blank" rel="noopener noreferrer" class="cta-btn">{t.ctaBand.buttons[1]}</a>
-        <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" class="cta-btn">{t.ctaBand.buttons[2]}</a>
       </div>
     </div>
   </section>
