@@ -442,7 +442,7 @@ const transportSections = [
                           {opt.steps && opt.steps.length > 0 && (
                             <div style="display:flex;flex-direction:column;gap:0.5rem;">
                               {opt.steps.map((step: string) => (
-                                <div style="font-size:0.9rem;color:var(--color-earth-soft);line-height:1.5;">• {renderText(step)}</div>
+                                <div style="font-size:0.9rem;color:var(--color-earth-soft);line-height:1.5;" set:html={`• ${renderText(step)}`}></div>
                               ))}
                             </div>
                           )}
@@ -455,7 +455,7 @@ const transportSections = [
                   sec.steps && sec.steps.length > 0 && (
                     <div style="display:flex;flex-direction:column;gap:0.75rem;background:rgba(0,0,0,0.02);padding:1.25rem;border-radius:6px;margin-top:1rem;">
                       {sec.steps.map((step: string) => (
-                        <div style="font-size:0.9rem;color:var(--color-earth-soft);line-height:1.5;">• {renderText(step)}</div>
+                        <div style="font-size:0.9rem;color:var(--color-earth-soft);line-height:1.5;" set:html={`• ${renderText(step)}`}></div>
                       ))}
                     </div>
                   )
