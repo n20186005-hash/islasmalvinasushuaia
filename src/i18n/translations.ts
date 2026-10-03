@@ -1,4 +1,4 @@
-export type Locale = "zh" | "en" | "es" | "it";
+export type Locale = "zh" | "en" | "es" | "it" | "de";
 export type LinkItem = { name: string; url: string };
 export type FAQItem = { question: string; answer: string };
 export type TransportOption = { name: string; time: string; price: string; steps: string[] };
@@ -34,6 +34,7 @@ const LINK_DEFS: { url: string; names: Record<Locale, string> }[] = [
       en: "Ushuaia Tourism Office - Espacio Pensar Malvinas",
       es: "Turismo Ushuaia - Espacio Pensar Malvinas",
       it: "Turismo Ushuaia - Spazio Pensare Malvinas",
+      de: "Turismo Ushuaia - Espacio Pensar Malvinas",
     },
   },
   {
@@ -43,6 +44,7 @@ const LINK_DEFS: { url: string; names: Record<Locale, string> }[] = [
       en: "Tierra del Fuego Government - Malvinas Affairs Secretariat",
       es: "Gobierno de Tierra del Fuego - Secretaría de Malvinas",
       it: "Governo della Terra del Fuoco - Segretariato delle Malvinas",
+      de: "Regierung von Tierra del Fuego - Sekretariat für Malvinas",
     },
   },
   {
@@ -52,6 +54,7 @@ const LINK_DEFS: { url: string; names: Record<Locale, string> }[] = [
       en: "Tierra del Fuego Official Tourism (Fin del Mundo)",
       es: "Turismo Oficial de Tierra del Fuego (Fin del Mundo)",
       it: "Turismo Ufficiale della Terra del Fuoco (Fin del Mondo)",
+      de: "Offizielles Tourismusbüro Feuerland (Fin del Mundo)",
     },
   },
   {
@@ -61,6 +64,7 @@ const LINK_DEFS: { url: string; names: Record<Locale, string> }[] = [
       en: "Municipality of Ushuaia Official Website",
       es: "Municipalidad de Ushuaia - Sitio Oficial",
       it: "Comune di Ushuaia - Sito Ufficiale",
+      de: "Stadt Ushuaia - Offizielle Website",
     },
   },
 ];
@@ -70,6 +74,7 @@ const LINKS_BY_LOCALE: Record<Locale, LinkItem[]> = {
   en: LINK_DEFS.map((d) => ({ name: d.names.en, url: d.url })),
   es: LINK_DEFS.map((d) => ({ name: d.names.es, url: d.url })),
   it: LINK_DEFS.map((d) => ({ name: d.names.it, url: d.url })),
+  de: LINK_DEFS.map((d) => ({ name: d.names.de, url: d.url })),
 };
 
 export const translations: Record<Locale, Translations> = {
@@ -430,10 +435,10 @@ export const translations: Record<Locale, Translations> = {
   es: {
     nav: { history: "Historia y Memoria", architecture: "Plaza y Monumentos", monuments: "Qué Experimentar", eco: "Etiqueta del Visitante", visiting: "Info de Visita", transportation: "Transporte", gallery: "Galería", reviews: "Reseñas", faq: "FAQ", location: "Ubicación" },
     hero: {
-      tags: ["Monumento de Guerra", "Abierto 24 Horas", "Permitido Perros"],
+      tags: ["Monumento de Guerra", "Abierto 24 Horas", "Permitido Perros", "Qué ver en Ushuaia"],
       tagline: "Argentina · Tierra del Fuego · Ushuaia",
-      title: "Plaza Islas Malvinas",
-      subtitle: "Monumento a los Caídos · Llama Eterna · Fin del Mundo",
+      title: "Plaza Islas Malvinas en Ushuaia",
+      subtitle: "Monumento a los Caídos · Llama Eterna · Qué ver y cómo llegar frente al Canal Beagle",
       cta: "Descubrí Este Lugar de Memoria",
       description: {
         address: "Patagonia 48, V9410 Ushuaia, Tierra del Fuego, Argentina",
@@ -779,6 +784,183 @@ export const translations: Record<Locale, Translations> = {
       title: "Pianifica il Tuo Viaggio a Ushuaia",
       subtitle: "Dalla porta d'ingresso all'Antartide fino alla fine del mondo — rendi la tua visita alla Plaza Islas Malvinas la tappa più significativa del tuo viaggio.",
       buttons: ["Info Visita e Orari", "Prenota Guida Ufficiale", "Vedi Posizione su Maps"]
+    }
+  },
+  de: {
+    nav: { history: "Geschichte & Erinnerung", architecture: "Platz & Denkmäler", monuments: "Was man erlebt", eco: "Besucheretikette", visiting: "Besuchsinfo", transportation: "Anreise", gallery: "Galerie", reviews: "Bewertungen", faq: "FAQ", location: "Lage" },
+    hero: {
+      tags: ["Kriegsdenkmal", "24 Stunden geöffnet", "Hunde erlaubt", "Sehenswürdigkeiten Ushuaia"],
+      tagline: "Argentinien · Feuerland · Ushuaia",
+      title: "Plaza Islas Malvinas in Ushuaia",
+      subtitle: "Denkmal für die Gefallenen · Ewige Flamme · Am Beagle-Kanal",
+      cta: "Diesen Ort der Erinnerung entdecken",
+      description: {
+        address: "Patagonia 48, V9410 Ushuaia, Tierra del Fuego, Argentinien",
+        phone: "",
+        category: "Park · Kriegsdenkmal"
+      }
+    },
+    rating: { reviews: "Bewertungen", source: "Google Bewertungen" },
+    history: {
+      title: "Geschichte und Erinnerung der Plaza Islas Malvinas",
+      intro: `Die Plaza Islas Malvinas liegt am **Beagle-Kanal** in Ushuaia, Provinz Tierra del Fuego, Argentinien. Sie ist eines der wichtigsten und symbolträchtigsten Mahnmale des Landes für den Krieg von Malvinas.\n\n**Der Malvinas-Krieg von 1982**\nVom 2. April bis zum 14. Juni 1982 führten Argentinien und das Vereinigte Königreich den Malvinas-Krieg, der **74 Tage** dauerte. Der Konflikt forderte **649 argentinische** und 255 britische Soldaten. Seit dem Ende des Krieges erhebt Argentinien seinen Souveränitätsanspruch auf die Malvinas, Südgeorgien und die Südlichen Sandwichinseln auf diplomatischem Weg.\n\n**Die besondere Stellung von Ushuaia**\nIn der argentinischen Verwaltungsstruktur ist Ushuaia Hauptstadt der **Provinz Tierra del Fuego, Antártida e Islas del Atlántico Sur**. Nach argentinischem Recht ist Ushuaia nominell auch Hauptstadt der Malvinas-Inseln – was dieser „südlichsten Stadt der Welt" eine unersetzliche politische und emotionale Rolle in der Malvinas-Frage verleiht.\n\n**Entstehung und Bedeutung des Platzes**\nDie Plaza Islas Malvinas wurde im Zentrum von Ushuaia an der Uferpromenade des Beagle-Kanals errichtet. Ihr zentrales Element ist eine **Wand aus schwarzem Marmor**, in die die Namen der **649 gefallenen argentinischen** Soldaten gemeißelt sind. Vor der Wand brennt die **Ewige Flamme** – eine dauerhaft entflammte Fackel, die der unvergesslichen Erinnerung symbolisiert. Die Plaza zeigt zudem die argentinische und die provinziale feuerländische Flagge sowie ein großes Relieffeld der Malvinas-Inseln im Boden.\n\n**Der 2. April – Tag der Veteranen**\nJeden 2. April gedenkt Argentinien des **„Tages der Veteranen und Gefallenen des Malvinas-Krieges"**. An diesem Tag kommen Tausende von Veteranen, Angehörige und Bürger aus dem ganzen Land auf diesen Platz zu einer nächtlichen Vigil und feierlichen Zeremonien, um das Andenken an den Krieg und die jungen Leben wachzuhalten.`
+    },
+    myths: {
+      title: "Symbolik und kollektives Gedächtnis",
+      intro: "Die Plaza Islas Malvinas ist mehr als ein physischer Ort – sie trägt eine tiefe emotionale Last für die argentinische Nation. Diese drei Themen helfen, die tiefere Symbolik dieses Mahnmals zu verstehen.",
+      items: [
+        {
+          title: "Die Ewige Flamme: Ein Feuer, das nie erlischt",
+          content: "Die Ewige Flamme im Herzen der Plaza ist das ergreifendste Element des Mahnmals. Seit ihrer Entzündung ist sie nie erloschen – sie brennt durch Schnee, bittere Kälte und Dunkelheit an der windigen Uferpromenade von Ushuaia.\n\nDie Flamme symbolisiert mehr als die Trauer um die Gefallenen – sie vermittelt eine tiefere Überzeugung: dass Argentiniens Souveränitätsanspruch auf die Malvinas-Inseln nie aufgehört hat. Wie die Einheimischen sagen: „Solange die Flamme brennt, werden wir nicht vergessen."\n\nWährend der Vigil am 2. April stehen Veteranen und Angehörige schweigend die ganze Nacht bei der Ewigen Flamme und bewachen dieses unvergängliche Feuer der Erinnerung."
+        },
+        {
+          title: "Das Ende der Welt unter dem Südlichen Kreuz",
+          content: "Ushuaia ist als die südlichste Stadt der Welt bekannt (La Ciudad Más Austral del Mundo), und die Plaza Islas Malvinas liegt an der Uferpromenade dieser Grenzstadt. Von der Plaza aus blickt man auf die tiefen Gewässer des Beagle-Kanals und die verschneite Cordillera Darwin in Chile.\n\nGeografisch ist die Lage des Denkmals an sich bereits hochsymbolisch. Die argentinischen Soldaten, die in Malvinas fielen, kamen aus allen Teilen des Landes; ihr Leben endete in den eiskalten Gewässern des Südatlantiks. Ushuaia – diese „Stadt am Ende der Welt" – ist ihr nächstes Zuhause.\n\nDie Plaza erhebt sich wie ein schweigender Wächter, der nach Süden blickt, in Richtung der Inseln, die die Argentinier „las Malvinas" nennen."
+        },
+        {
+          title: "649 Namen: Die Geschichte hinter jedem Stein",
+          content: "Jeder der 649 Namen, die in die schwarze Marmorwand gemeißelt sind, steht für einen echten Menschen, der einst lebte. Darunter waren 18-jährige Wehrpflichtige, Piloten, Marinesoldaten und Offiziere.\n\nViele argentinische Familien reisen jedes Jahr aus den Binnenprovinzen nach Ushuaia, um auf der Wand den Namen eines Angehörigen zu suchen, und lassen eine Blume oder eine kleine Flagge zurück. Für die Angehörigen ist dieser Platz der nächste Ort, an dem sie ihren Lieben sein können – denn von hier aus, nach Süden blickend, liegen die Malvinas-Inseln genau jenseits des Meeres.\n\nSo ist die Plaza zu einem wichtigen Ort der Heilung für das nationale Trauma Argentiniens geworden – einem Ort, an dem persönlicher Schmerz und kollektives Gedächtnis zusammenkommen."
+        }
+      ]
+    },
+    curiosities: {
+      title: "Kulturelle Notizen und historische Anmerkungen",
+      content: `**„Las Malvinas son argentinas"**\nDieser Satz ist in Argentinien allgegenwärtig. Von Straßenkunst in Buenos Aires bis zu Fußballfahnen, von Schulbüchern bis zu offiziellen Dokumenten – er ist einer der zentralen Leitsätze der modernen argentinischen Identität. Die Plaza Islas Malvinas in Ushuaia ist sein feierlichster physischer Ausdruck.\n\n**Die Vigil am 2. April**\nJedes Jahr, von der Nacht des 1. April bis in den frühen Morgen des 2. April, findet auf der Plaza die wichtigste „Vigilia de Malvinas" des Landes statt. Veteranenverbände errichten eine Bühne, zeigen Dokumentarfilme, und Veteranen teilen ihre Erlebnisse. Um Mitternacht, wenn die Glocken den 2. April schlagen, wird eine Schweigeminute eingehalten, bevor die argentinische Nationalhymne erklingt.\n\n**Die historische Verwicklung des Beagle-Kanals**\nDer Beagle-Kanal, an dessen Ufer Ushuaia liegt, war einst ein Brennpunkt des Territorialstreits zwischen Argentinien und Chile. 1978 standen beide Länder vor einem Krieg, der durch die päpstliche Vermittlung von Johannes Paul II. abgewendet und 1984 im Vertrag über Frieden und Freundschaft beendet wurde. Die Plaza Islas Malvinas, die zum Beagle blickt, zeugt auch von der komplexen internationalen Geschichte des südlichsten Südamerikas.\n\n**Hunde auf der Plaza**\nDie Plaza Islas Malvinas ist einer der wenigen öffentlichen Orte in Ushuaia, an denen Hunde ausdrücklich erlaubt sind. Viele Anwohner spazieren täglich mit ihren Hunden über die Plaza und integrieren das feierliche Mahnmal in das ganz alltägliche Leben der Stadt. Manche sagen, genau darin liege die Genialität des Platzes – er ist zugleich heiliger Erinnerungsraum und lebendiger öffentlicher Platz.`
+    },
+    eco: {
+      title: "Besucheretikette und Respekt",
+      intro: "Die Plaza Islas Malvinas ist eines der wichtigsten Kriegsdenkmäler Argentiniens. Als unabhängiger, gemeinnütziger Bildungsführer bitten wir alle Besucher, diesen heiligen Ort mit größtem Respekt zu behandeln.",
+      items: [
+        "**Stille bewahren**: dies ist ein Mahnmal für die Gefallenen – leise sprechen, laute Gespräche, Musik oder Spielen vermeiden",
+        "**Die Ewige Flamme respektieren**: nichts in das Feuer werfen und die Absperrungen nicht überqueren, um sie zu berühren",
+        "**Die Denkmäler nicht berühren**: nicht hinaufklettern, sich setzen oder an die Gedenkwand lehnen – es ist eine feierliche Anlage",
+        "**Keine Spuren hinterlassen**: den Müll mitnehmen und die Plaza sauber halten",
+        "**Respektvolle Fotografie**: Fotografieren ist erlaubt, aber Blitz und Auslösergeräusche ausschalten; Personen, die gerade gedenken, nicht stören",
+        "**Zeremonien respektieren**: wenn eine Gedenkveranstaltung stattfindet (besonders um den 2. April), respektvollen Abstand halten und schweigend beobachten"
+      ]
+    },
+    architecture: {
+      title: "Anlage der Plaza und Denkmalensemble",
+      intro: "Trotz bescheidener Größe ist die Plaza Islas Malvinas kompakt und sinnstiftend gestaltet. Über der Uferpromenade bildet die Wand aus schwarzem Marmor ihr Herzstück, mit weiteren Denkmälern entlang des Küstenwegs.",
+      specs: {
+        structure: { title: "Gesamtanordnung", content: "Die Plaza öffnet sich in einem freien Entwurf zum Beagle-Kanal. Drei Hauptelemente bilden den Kern: ① **Gedenkwand der Gefallenen** – Wand aus schwarzem Marmor mit den 649 Namen in alphabetischer Reihenfolge; ② **Ewige Flamme** – dauerhaft entflammte Fackel direkt vor der Wand; ③ **Relieffeld der Malvinas-Inseln** – große topografische Darstellung des Archipels im Boden.\n\nMasten mit der argentinischen und der feuerländischen Provinzflagge flankieren die Plaza. Ummauerte, windresistente heimische Pflanzen wurden rund um das Gelände gepflanzt und binden das Mahnmal in die Küstenlandschaft Ushuaias ein." },
+        design: { title: "Gestaltungsphilosophie", content: `Die Plaza verkörpert das Prinzip **„Erinnerung in Harmonie mit der Natur"**. Die schwarze Marmorwand bildet einen starken visuellen Kontrast zu den verschneiten Bergen der Umgebung und symbolisiert das Gewicht des Krieges und den Wert des Friedens. Das orangefarbene Leuchten der Ewigen Flamme sticht im oft wolkigen Ushuaia deutlich hervor, bei Tag wie bei Nacht.\n\nDas Denkmal blickt nach Süden – zu den Malvinas-Inseln. Der Gestalter richtete die Hauptachse der Plaza bewusst in nordost-südwestlicher Orientierung aus, sodass Besucher, die vor dem Mahnmal stehen, natürlich zu den Inseln blicken, die im argentinischen Herzen so mächtig sind.` },
+        optics: { title: "Umgebung", content: `Die Plaza liegt direkt an der Uferpromenade von Ushuaia. Nach dem Besuch lässt sich am Beagle-Kanal entlangspazieren. Genau gegenüber der Plaza befindet sich der **„Espacio Pensar Malvinas"** – ein kostenloser Ausstellungsraum, der von Turismo Ushuaia betrieben wird und vertiefende Einblicke sowie offizielle Führungen zum Hintergrund des Malvinas-Krieges bietet. In der Nähe liegt zudem das **Museo Marítimo de Ushuaia**.` }
+      },
+      plaque: {
+        title: "Grundinformationen",
+        items: [
+          { label: "Name", value: "Plaza Islas Malvinas" },
+          { label: "Lage", value: "Ushuaia, Tierra del Fuego, Argentinien" },
+          { label: "Gedenkt", value: "Gefallenen des Malvinas-Krieges 1982" },
+          { label: "Gefallene", value: "649 argentinische Soldaten" },
+          { label: "Öffnungszeiten", value: "24 Stunden, ganzjährig" },
+          { label: "Eintritt", value: "Kostenlos (öffentlicher Raum)" },
+          { label: "Wahrzeichen", value: "Schwarze Marmorwand, Ewige Flamme" }
+        ]
+      }
+    },
+    monuments: {
+      title: "Was man auf der Plaza Islas Malvinas erlebt",
+      intro: "Die Plaza Islas Malvinas verbindet feierliches Gedenken, tiefgreifende historische Bildung und die beeindruckende Naturlandschaft Ushuaias. Die folgenden Erlebnisse werden von Geschichtsinteressierten, Angehörigen von Veteranen und Besuchern allgemein geschätzt.",
+      items: [
+        { name: "Am Gedenkwall gedenken", description: "Gehen Sie zur Wand aus schwarzem Marmor und lesen Sie die 649 Namen. Jeder Name steht für ein junges Leben. Wir empfehlen eine Pause vor der Wand für eine Schweigeminute für die Soldaten, die ihr Leben gaben. Viele Besucher hinterlassen eine Blume oder eine kleine Flagge." },
+        { name: "Die Ewige Flamme betrachten", description: "Bei Tag und bei Nacht brennt die Ewige Flamme in der Meeresbrise von Ushuaia. Das Feuer ist besonders ergreifend vor dem Hintergrund des schwarzen Marmors. Halten Sie respektvollen Abstand und betrachten Sie schweigend diese unvergängliche Flamme der Erinnerung und des nationalen Gedächtnisses." },
+        { name: "Den Espacio Pensar Malvinas besuchen", description: "Neben der Plaza ist der Espacio Pensar Malvinas ein kostenloser Ausstellungsraum, der von Turismo Ushuaia betrieben wird. Anhand von Fotografien, Objekten, Karten und audiovisuellen Materialien bietet er einen tiefen Einblick in den historischen Hintergrund des Krieges von 1982 sowie die Geografie und Kultur der Inseln." },
+        { name: "An der Uferpromenade spazieren", description: "Nach dem Besuch der Plaza entlang der Uferpromenade von Ushuaia gehen. Der Beagle-Kanal bietet eindrucksvolle Ausblicke – die chilenische Cordillera Darwin erhebt sich am gegenüberliegenden Ufer, und man sieht oft Seelöwen und Albatrosse. Ein perfekter Übergang von der feierlichen Geschichte zur Gegenwart." }
+      ]
+    },
+    contrast: {
+      title: "Feierliches Denkmal und majestätischer Kanal",
+      intro: "Die Kraft der Plaza Islas Malvinas liegt an der Schnittstelle von tiefem menschlichem Gedenken und sublimit natürlicher Schönheit. Auf der einen Seite 649 Namen auf schwarzem Marmor; auf der anderen das ewige Kommen und Gehen des Beagle-Kanals – zwei Bilder fangen diese Begegnung von Schwere und Ewigkeit ein.",
+      before: "Feierliches Denkmal",
+      after: "Ausblick auf den Beagle-Kanal"
+    },
+    visiting: {
+      title: "Planen Sie Ihren Besuch",
+      intro: "Als offener öffentlicher Raum ist die Plaza Islas Malvinas ganzjährig geöffnet und völlig kostenlos. Ob Sie gezielt zur Gedenkstätte kommen oder im Rahmen Ihrer Rundreise durch Ushuaia – die folgenden Informationen helfen Ihnen, einen sinnvollen Besuch zu planen.",
+      hours: { title: "Öffnungszeiten", content: "**24 Stunden geöffnet**, ganzjährig.\nAls städtischer öffentlicher Raum hat die Plaza keine Zäune oder Zugangsbeschränkungen.\nSie verfügt über eine grundlegende Nachtbeleuchtung, und die Ewige Flamme ist die ganze Nacht über sichtbar.", note: "In den Tagen um den 2. April kann die Plaza wegen Gedenkveranstaltungen extrem überfüllt sein – planen Sie voraus." },
+      price: { title: "Eintritt", content: "**Völlig kostenlos**.\nDie Plaza ist ein öffentlicher Raum der Stadt Ushuaia; es wird kein Eintritt erhoben.\nAuch der angrenzende Espacio Pensar Malvinas ist frei zugänglich und kostenlos.", note: "Ein frei zugänglicher Gedenkort – besuchen Sie ihn mit Respekt und Dankbarkeit." },
+      duration: { title: "Empfohlene Dauer", content: "Gedenkwand + Ewige Flamme + Fotos: etwa **20–30 Minuten**.\nEinschließlich Espacio Pensar Malvinas: **30–45 Minuten** hinzurechnen.\nSpaziergang an der Uferpromenade + Ausblick auf den Beagle-Kanal: frei.", note: "Lässt sich mit dem Museo Marítimo de Ushuaia und dem Museo del Fin del Mundo zu einer Halbtagestour kombinieren." },
+      tips: { title: "Tipps und Empfehlungen", items: [
+        "**Warm anziehen**: Ushuaia ist das ganze Jahr kühl (Sommer im Schnitt ~10 °C, Winter ~0 °C) mit starken Meereswinden – winddichte Kleidung tragen",
+        "**Auf Regen vorbereiten**: das feuerländische Wetter ist wechselhaft; auch an klaren Tagen Regenschutz mitführen",
+        "**Das Mahnmal respektieren**: der Plaza mit der Haltung eines Gedenkorts begegnen; zu informelle oder spielerische Fotos vermeiden",
+        "**Zu Fuß erreichbar**: die Plaza liegt an der zentralen Uferpromenade von Ushuaia, fußläufig von den meisten Hotels in der Innenstadt",
+        "**Fototipp**: das Morgen- oder Abendlicht ist am besten, um das Denkmal mit dem Beagle-Kanal im Hintergrund zu fotografieren"
+      ] },
+      essentials: [
+        { icon: "🧥", title: "Warm anziehen", text: "Ushuaia ist das ganze Jahr kühl mit starken Winden – auch im Sommer winddichte Kleidung tragen." },
+        { icon: "🌧️", title: "Regen", text: "Das feuerländische Wetter ist unberechenbar; immer Regenschutz mitführen." },
+        { icon: "🕊️", title: "Feierlichkeit", text: "Es ist ein Kriegsdenkmal – leise sprechen, Spielen vermeiden, Gedenkende respektieren." },
+        { icon: "📸", title: "Respektvolle Fotos", text: "Fotografieren erlaubt, aber Blitz und Ton ausschalten; nicht auf Denkmäler klettern." }
+      ]
+    },
+    transportation: {
+      title: "Detaillierte Anreise",
+      airport: { title: "✈️ Vom Flughafen Ushuaia", content: "Der internationale Flughafen Malvinas Argentinas von Ushuaia (USH) liegt nur 4 km vom Zentrum entfernt. Von dort zur Plaza Islas Malvinas ist es sehr einfach.", options: [
+        { name: "Taxi / App-Fahrdienst (empfohlen)", price: "ca. 10–15 Min", time: "4 km", steps: ["Taxi oder Remís direkt am Flughafenausgang nehmen", "Der RN-3 (Ruta Nacional 3) Richtung Norden in die Stadt folgen", "Fahrer „Plaza Islas Malvinas" oder „Monumento a los Caídos en Malvinas" nennen", "Nach etwa 10–15 Minuten ankommen"] }
+      ]},
+      city: { title: "🏘️ Zu Fuß aus dem Zentrum von Ushuaia", content: "Die Plaza Islas Malvinas liegt an der **Uferpromenade** des Zentrums von Ushuaia. Von der Hauptstraße Avenida San Martín ist es ein angenehmer Spaziergang von **5–10 Minuten**.", steps: ["Von der Av. San Martín Richtung Süden zur Küste gehen", "An der Uferpromenade rechts (Westen) abbiegen", "Etwa 300 Meter gehen – bald sieht man die argentinische Flagge und die Ewige Flamme", "Der Eingang zur Plaza liegt direkt an der Uferpromenade"] },
+      otherWays: { title: "🧭 Weitere Anreisearten", content: "Wenn Sie aus Stadtteilen außerhalb des Zentrums kommen oder weniger laufen möchten, können diese Alternativen helfen, zum Bereich des Denkmals zu gelangen. Die Zeiten variieren je nach Wetter, Verkehr und möglichen Einschränkungen.", steps: ["**Taxi / App-Fahrdienst**: „Plaza Islas Malvinas" oder „Monumento a los Caídos en Malvinas" angeben – meist 5–15 Minuten aus zentralen Lagen", "**Mit dem Auto**: über RN-3 oder Stadtstraßen zur Uferpromenade; kurzes Parken am Straßenrand möglich, kann aber bei Gedenkveranstaltungen eingeschränkt sein", "**Bus**: aktuelle Linien und Haltestellen Richtung Uferpromenade/Zentrum prüfen; nahe der Küste aussteigen und einige Minuten laufen", "**Mit dem Fahrrad / zu Fuß**: der Weg an der Uferpromenade ist malerisch, aber es weht starker Wind und der Boden kann feucht sein"] },
+      tips: { title: "Anreisetipps", items: [
+        "Das Zentrum von Ushuaia ist kompakt – **fast alle Hotels in der Innenstadt sind fußläufig zur Plaza**",
+        "Bei Unterkunft in entfernten Lagen (z. B. an den Hängen) Taxi oder Linienbus nutzen",
+        "Der Flughafen Ushuaia (USH) hat Direktflüge nach Buenos Aires (AEP/EZE), Dauer ca. 3,5 Stunden",
+        "Die Fahrt von Buenos Aires nach Ushuaia beträgt etwa 3.000 km – Fliegen wird empfohlen",
+        "Ushuaia ist auch ein wichtiger Abfahrtshafen für die Antarktis; zahlreiche Antarktis-Kreuzfahrten laufen von November bis März hier ein"
+      ] }
+    },
+    gallery: { title: "Fotogalerie", viewMore: "Weitere Fotos auf Google Maps", categories: [ { key: "memorial", label: "Denkmal" }, { key: "flame", label: "Ewige Flamme" }, { key: "plaza", label: "Platzansichten" }, { key: "beagle", label: "Kanalansichten" } ] },
+    reviews: {
+      title: "Besucherbewertungen und nahe Umgebung",
+      subtitle: "Stimmen der Plaza Islas Malvinas: echte Zeugnisse von Google Maps",
+      viewMore: "Weitere Bewertungen auf Google Maps",
+      nearbyTitle: "Sehenswerte Orte in der Nähe",
+      nearbyIntro: "Nach dem Besuch der Plaza Islas Malvinas lassen sich die folgenden nahen Ziele leicht erkunden:",
+      nearbyItems: [
+        { name: "Museo del Fin del Mundo", description: "Etwa 10 Minuten zu Fuß von der Plaza. Zeigt die Naturgeschichte und die Ursprungsvölker Feuerlands – der beste Ort, um Vergangenheit und Gegenwart Ushuaias zu verstehen." },
+        { name: "Museo Marítimo de Ushuaia", description: "Im Gebäude des ehemaligen Gefängnisses, mit Ausstellungen zur Strafgeschichte Ushuaias, zur Antarktis-Entdeckung und einem Bereich zum Malvinas-Krieg." },
+        { name: "Parque Nacional Tierra del Fuego", description: "Etwa 12 km von der Stadt entfernt, der südlichste Nationalpark Argentiniens. Mit dem Tren del Fin del Mundo lässt sich der Park erreichen und man genießt unberührte Wälder und Ausblicke auf den Beagle-Kanal." }
+      ]
+    },
+    faq: { title: "Häufig gestellte Fragen", subtitle: "Mehr über die Plaza Islas Malvinas erfahren", items: [
+      { question: "Was ist die Plaza Islas Malvinas?", answer: "Die Plaza Islas Malvinas liegt an der Uferpromenade des Beagle-Kanals in Ushuaia, Argentinien. Sie ist eines der wichtigsten Mahnmale des Landes für den Malvinas-Krieg von 1982. Die Plaza zeigt eine Wand aus schwarzem Marmor mit den Namen von 649 gefallenen argentinischen Soldaten, vor der eine Ewige Flamme brennt." },
+      { question: "Wird Eintritt erhoben? Wie sind die Öffnungszeiten?", answer: "Die Plaza Islas Malvinas ist ein **öffentlicher Raum** der Stadt Ushuaia. Sie ist völlig kostenlos und ohne Eintritt. Die Plaza ist **rund um die Uhr, das ganze Jahr über** geöffnet und nachts beleuchtet. In den Tagen um den 2. April (Malvinas-Tag) kann der Bereich sehr belebt sein." },
+      { question: "Was sollte ich beim Besuch beachten?", answer: "Es ist ein Kriegsdenkmal – Stille bewahren und die Denkmäler respektieren. Nicht auf die Gedenkwand klettern oder die Absperrungen der Ewigen Flamme überqueren. Den Kamerablitz ausschalten. Das Wetter in Ushuaia ist wechselhaft – winddichte Kleidung tragen. Hunde an der Leine sind erlaubt." },
+      { question: "Wie komme ich von Buenos Aires nach Ushuaia?", answer: "Flug von Buenos Aires zum internationalen Flughafen Malvinas Argentinas von Ushuaia (USH), etwa 3,5 Stunden. Vom Flughafen mit dem Taxi etwa 10–15 Minuten (4 km) zur Plaza Islas Malvinas im Zentrum. Es gibt auch Fernbusse, die Fahrt von Buenos Aires dauert jedoch etwa 36 Stunden." },
+      { question: "Was ist der Espacio Pensar Malvinas?", answer: "Der Espacio Pensar Malvinas ist ein kostenloser Ausstellungsraum neben der Plaza, betrieben von Turismo Municipal de Ushuaia. Anhand von Fotografien, Objekten, Karten und audiovisuellen Materialien bietet er einen tiefen Einblick in den historischen Hintergrund des Krieges von 1982 sowie die Geografie und Kultur der Inseln. Öffnungszeiten auf turismoushuaia.com prüfen." }
+    ]},
+    location: { title: "Lage", address: "Patagonia 48, V9410\nUshuaia, Tierra del Fuego\nArgentinien", openMaps: "Auf Google Maps ansehen" },
+    footer: { callToAction: "Die Plaza Islas Malvinas ist ein lebendiger Träger des argentinischen nationalen Gedächtnisses. Sechshundertneunundvierzig Namen, eine ewige Flamme – die still die Gewässer des Südatlantiks bewacht. Besuchen Sie diesen Ort mit tiefstem Respekt, damit die Geschichte im Gedächtnis lebendig bleibt.", text: "© 2026 Reiseführer Plaza Islas Malvinas · Alle Rechte vorbehalten.\nDiese Website ist ein unabhängiger, gemeinnütziger Bildungsführer, der genaue Informationen über die Plaza Islas Malvinas verbreitet. Wir sind weder der argentinischen Regierung, der Provinzregierung von Tierra del Fuego noch einer offiziellen Institution angeschlossen.", made: "Dies ist ein unabhängiges, gemeinnütziges Bildungsprojekt, geschaffen für Geschichtsinteressierte, Reisende und alle, die den Frieden schätzen.", linksTitle: "Freunde-Links", links: LINKS_BY_LOCALE.de },
+    siteMap: {
+      title: "Interaktive Plaza-Karte",
+      intro: "Fahren Sie über (oder tippen Sie auf) die Marker der Karte, um die fünf Kernbereiche der Plaza Islas Malvinas zu erkunden.",
+      hint: "Fahren · Tippen zum Anheften",
+      cta: "Die vollständige Plaza-Anleitung ansehen",
+      zones: [
+        { key: "cenotafio", name: "Wand der Gefallenen (Kenotaph)", desc: "Wand aus schwarzem Marmor mit den 649 Namen in alphabetischer Reihenfolge – die zentrale Gedenkanlage der Plaza." },
+        { key: "llama", name: "Ewige Flamme (Llama Eterna)", desc: "Dauerhaft brennende Fackel vor der Gedenkwand, Symbol der unvergesslichen Erinnerung an die Gefallenen." },
+        { key: "banderas", name: "Platz der Fahnen (Mástiles)", desc: "Argentinische Flagge und feuerländische Provinzflagge – Hauptschauplatz der Zeremonien am 2. April." },
+        { key: "mapa", name: "Relieffeld der Inseln (Mapa Relieve)", desc: "Großes topografisches Relief des Malvinas-Archipels im Boden, das die Inselgeografie zeigt." },
+        { key: "costanera", name: "Uferpromenade (Costanera)", desc: "Küstenweg am Beagle-Kanal, der die Plaza mit anderen Sehenswürdigkeiten der Stadt verbindet – ideal für einen Spaziergang am Meer." }
+      ]
+    },
+    itinerary: {
+      title: "Empfohlener Ablauf",
+      intro: "Eine halbe Stunde reicht für den zentralen Gedenkbesuch. Nutzen Sie die Zeitleiste als Leitfaden und passen Sie sie Ihrem eigenen Tempo an.",
+      steps: [
+        { time: "Ankunft", title: "Zur Plaza gelangen", text: "Von der Innenstadt Ushuaias an der Uferpromenade gehen; den vollen Blick auf die Plaza und den Beagle-Kanal vom Eingang aus genießen." },
+        { time: "+5 Min", title: "Huldigung an der Wand", text: "Zur Wand aus schwarzem Marmor gehen, die Namen der Gefallenen schweigend lesen, eine Blume hinterlassen oder eine Schweigeminute halten." },
+        { time: "+15 Min", title: "Die Ewige Flamme betrachten", text: "Eine Pause vor der Ewigen Flamme machen und das nationale Gedächtnis aufnehmen, das dieses unvergängliche Feuer verkörpert." },
+        { time: "+20 Min", title: "Den Ausstellungsraum besuchen", text: "Den Espacio Pensar Malvinas besuchen (falls geöffnet), um den historischen Hintergrund des Krieges von 1982 tiefer zu verstehen." },
+        { time: "+50 Min", title: "An der Uferpromenade spazieren", text: "An der Uferpromenade gehen, die Ausblicke auf den Beagle-Kanal genießen und die verschneite Cordillera Darwin in der Ferne betrachten." }
+      ]
+    },
+    ctaBand: {
+      title: "Planen Sie Ihre Reise nach Ushuaia",
+      subtitle: "Vom Tor zur Antarktis bis zum Ende der Welt – machen Sie Ihren Besuch der Plaza Islas Malvinas zum bedeutendsten Halt Ihrer Reise.",
+      buttons: ["Besuchs- & Öffnungszeiten", "Offizielle Führung buchen", "Lage auf Maps ansehen"]
     }
   }
 };

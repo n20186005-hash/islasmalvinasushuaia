@@ -1,0 +1,104 @@
+---
+import TopicLayout from '../../layouts/TopicLayout.astro';
+
+const title = 'Qué Ver en Ushuaia: Atracciones Imprescindibles cerca de Plaza Islas Malvinas';
+const description =
+  'Guía de qué ver en Ushuaia: Plaza Islas Malvinas, Canal Beagle, Parque Nacional Tierra del Fuego, Museo Marítimo y el Tren del Fin del Mundo. Itinerario a pie desde el centro.';
+const path = '/es/que-ver-en-ushuaia';
+
+const attractions = [
+  {
+    name: 'Plaza Islas Malvinas',
+    text: 'El punto de partida natural. Este memorial frente al Canal Beagle conmemora a los 649 caídos en la Guerra de Malvinas, con su muro de mármol negro y la Llama Eterna. Está sobre la costanera céntrica, a pocos minutos a pie de todo lo demás.',
+  },
+  {
+    name: 'Canal Beagle y Faro Les Éclaireurs',
+    text: 'La arteria natural de Ushuaia. Desde la costanera o en navegación, se avista la Cordillera Darwin, lobos marinos, aves y el icónico faro rojo y blanco conocido como el "Faro del Fin del Mundo".',
+  },
+  {
+    name: 'Museo Marítimo y Presidio de Ushuaia',
+    text: 'Instalado en el antiguo presidio, combina historia penitenciaria, exploración antártica y una sala dedicada a la Guerra de Malvinas. Uno de los museos más completos de la ciudad.',
+  },
+  {
+    name: 'Museo del Fin del Mundo',
+    text: 'A pocos pasos de la plaza, exhibe la historia natural y las culturas originarias de Tierra del Fuego. Ideal para entender el pasado y presente de la región antes de salir a explorar.',
+  },
+  {
+    name: 'Parque Nacional Tierra del Fuego',
+    text: 'El parque nacional más austral de Argentina, a unos 12 km del centro. Bosques prístinos, la Bahía Encerrada y la estación final del Tren del Fin del Mundo, que recorre el recorrido del antiguo tren presidiario.',
+  },
+  {
+    name: 'Glaciar Martial y el teleférico',
+    text: 'Al norte de la ciudad, ofrece miradores sobre Ushuaia y el Canal Beagle. Se accede en vehículo o a pie; el sendero superior permite acercarse al frente del glaciar.',
+  },
+];
+
+const faqs = [
+  { q: '¿Qué se puede ver en Ushuaia en un día?', a: 'Empezá por la Plaza Islas Malvinas y la costanera, visitá el Museo del Fin del Mundo o el Museo Marítimo, y cerra el día con una navegación por el Canal Beagle o subiendo al Glaciar Martial. Si tenés tiempo, el Parque Nacional Tierra del Fuego y el Tren del Fin del Mundo merecen media jornada.' },
+  { q: '¿Está Ushuaia centrada en la naturaleza o en la historia?', a: 'Ambas. La ciudad combina memoriales como Plaza Islas Malvinas y museos de historia fueguina con paisajes extremos: Canal Beagle, Cordillera Darwin, glaciares y el parque nacional más austral del país.' },
+  { q: '¿Se puede recorrer Ushuaia a pie?', a: 'Sí. El casco céntrico —plaza, museos, costanera y Avenida San Martín— es compacto y muy caminable. Las excursiones al parque nacional, glaciares y navegaciones suelen requerir traslado o tour.' },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<TopicLayout locale="es" title={title} description={description} path={path}>
+  <section class="section">
+    <div class="reveal">
+      <p class="section-label">Ushuaia</p>
+      <h1 class="section-title">Qué Ver en Ushuaia</h1>
+      <div class="section-divider"></div>
+    </div>
+    <div class="reveal">
+      <p class="about-text">
+        Ushuaia, la ciudad más austral del mundo, reúne memoriales históricos, museos y paisajes subantárticos en un radio compacto. Esta guía parte de la <a href="/es" style="color:var(--color-gold);font-weight:600;">Plaza Islas Malvinas</a> —sobre la costanera del Canal Beagle— y propone las atracciones más representativas para una primera visita, todas conectadas a pie o con un corto traslado.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="info-grid">
+        {
+          attractions.map((a) => (
+            <div class="info-card">
+              <div class="info-card-title">{a.name}</div>
+              <div class="info-card-content" style="white-space:pre-line;">{a.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--color-deep);margin:3rem 0 1rem;">Ruta sugerida a pie desde el centro</h2>
+      <p class="about-text">
+        Salí de la <a href="/es" style="color:var(--color-gold);font-weight:600;">Plaza Islas Malvinas</a> por la costanera, continuá hacia el Museo del Fin del Mundo, subí por Avenida San Martín para el comercio y las vistas, y reservá la tarde para una navegación por el Canal Beagle o el ascenso al Glaciar Martial. Para el Parque Nacional y el Tren del Fin del Mundo, sumá media jornada aparte.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--color-deep);margin:3rem 0 1rem;">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        {
+          faqs.map((f) => (
+            <div class="faq-item expanded">
+              <div class="faq-question" style="cursor:default;">
+                <span style="color:var(--color-deep);font-weight:600;">{f.q}</span>
+              </div>
+              <div class="faq-answer"><p>{f.a}</p></div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:3rem;text-align:center;">
+      <a href="/es/que-hacer-en-ushuaia" style="color:var(--color-gold);font-weight:600;text-decoration:none;">→ Qué hacer en Ushuaia: actividades y excursiones</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqLd)}></script>
+</TopicLayout>

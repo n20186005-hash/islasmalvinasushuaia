@@ -5,7 +5,7 @@ import { getSeo } from '../../lib/seo';
 import galleryImagesData from '../../gallery-data.json';
 
 export function getStaticPaths() {
-  return (['es', 'en', 'zh', 'it'] as Locale[]).map((locale) => ({ params: { locale } }));
+  return (['es', 'en', 'zh', 'it', 'de'] as Locale[]).map((locale) => ({ params: { locale } }));
 }
 
 const { locale } = Astro.params as { locale: Locale };
@@ -33,7 +33,7 @@ const MARKER_POS: Record<string, { top: string; left: string }> = {
   costanera: { top: '82%', left: '75%' },
 };
 
-const LANG_LABELS: Record<Locale, string> = { zh: '中文', en: 'EN', es: 'ES', it: 'IT' };
+const LANG_LABELS: Record<Locale, string> = { zh: '中文', en: 'EN', es: 'ES', it: 'IT', de: 'DE' };
 
 const GOOGLE_REVIEWS = [
   { name: 'Carlos M.', avatar: 'CM', rating: 5, date: '2025-05-15', text: 'Un lugar profundamente conmovedor. La llama eterna frente al muro de mármol negro con los nombres de los 649 caídos es imposible de describir con palabras. Imprescindible en Ushuaia.' },
@@ -120,7 +120,7 @@ const transportSections = [
       </button>
       <div class="lang-switcher">
         {
-          (['zh', 'en', 'es', 'it'] as Locale[]).map((l) => (
+          (['zh', 'en', 'es', 'it', 'de'] as Locale[]).map((l) => (
             <button class={l === locale ? 'lang-btn active' : 'lang-btn'} data-locale={l} type="button">
               {LANG_LABELS[l]}
             </button>
@@ -505,7 +505,7 @@ const transportSections = [
               {
                 galleryImages.map((item, i) => (
                   <div class="gallery-item" data-index={i} data-category={item.category}>
-                    <img src={item.src} alt={locale === 'zh' ? `马尔维纳斯广场照片 ${i + 1}` : locale === 'es' ? `Plaza Islas Malvinas foto ${i + 1}` : locale === 'it' ? `Plaza Islas Malvinas foto ${i + 1}` : `Plaza Islas Malvinas gallery image ${i + 1}`} loading="lazy" />
+                    <img src={item.src} alt={locale === 'zh' ? `马尔维纳斯广场照片 ${i + 1}` : locale === 'es' ? `Plaza Islas Malvinas foto ${i + 1}` : locale === 'it' ? `Plaza Islas Malvinas foto ${i + 1}` : locale === 'de' ? `Plaza Islas Malvinas Foto ${i + 1}` : `Plaza Islas Malvinas gallery image ${i + 1}`} loading="lazy" />
                   </div>
                 ))
               }
@@ -638,7 +638,7 @@ const transportSections = [
             allowfullscreen
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title={locale === 'zh' ? '马尔维纳斯广场位置地图' : locale === 'es' ? 'Mapa de Plaza Islas Malvinas' : locale === 'it' ? 'Mappa di Plaza Islas Malvinas' : 'Plaza Islas Malvinas Location Map'}
+            title={locale === 'zh' ? '马尔维纳斯广场位置地图' : locale === 'es' ? 'Mapa de Plaza Islas Malvinas' : locale === 'it' ? 'Mappa di Plaza Islas Malvinas' : locale === 'de' ? 'Karte der Plaza Islas Malvinas' : 'Plaza Islas Malvinas Location Map'}
           >
           </iframe>
         </div>
@@ -747,13 +747,13 @@ const transportSections = [
         }
       </div>
       <div style="margin-top:1.25rem;text-align:center;">
-        <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" class="google-maps-btn">{locale === 'zh' ? 'Google 地图 →' : locale === 'es' ? 'Google Maps →' : locale === 'it' ? 'Google Maps →' : 'Google Maps →'}</a>
+        <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" class="google-maps-btn">{locale === 'zh' ? 'Google 地图 →' : locale === 'es' ? 'Google Maps →' : locale === 'it' ? 'Google Maps →' : locale === 'de' ? 'Google Maps →' : 'Google Maps →'}</a>
       </div>
     </div>
     <div class="footer-legal" style="max-width:1100px;margin:0 auto;padding:1rem 2rem 0;text-align:center;">
-      <a href="/privacy" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;margin-right:1.5rem;">{locale === 'zh' ? '隐私政策' : locale === 'es' ? 'Política de Privacidad' : locale === 'it' ? 'Informativa sulla Privacy' : 'Privacy Policy'}</a>
-      <a href="/terms" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;margin-right:1.5rem;">{locale === 'zh' ? '服务条款' : locale === 'es' ? 'Términos de Servicio' : locale === 'it' ? 'Termini di Servizio' : 'Terms of Service'}</a>
-      <a href="/cookies" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;">{locale === 'zh' ? 'Cookie 设置' : locale === 'es' ? 'Configuración de Cookies' : locale === 'it' ? 'Impostazioni Cookie' : 'Cookie Settings'}</a>
+      <a href="/privacy" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;margin-right:1.5rem;">{locale === 'zh' ? '隐私政策' : locale === 'es' ? 'Política de Privacidad' : locale === 'it' ? 'Informativa sulla Privacy' : locale === 'de' ? 'Datenschutz' : 'Privacy Policy'}</a>
+      <a href="/terms" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;margin-right:1.5rem;">{locale === 'zh' ? '服务条款' : locale === 'es' ? 'Términos de Servicio' : locale === 'it' ? 'Termini di Servizio' : locale === 'de' ? 'Nutzungsbedingungen' : 'Terms of Service'}</a>
+      <a href="/cookies" style="color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.8rem;">{locale === 'zh' ? 'Cookie 设置' : locale === 'es' ? 'Configuración de Cookies' : locale === 'it' ? 'Impostazioni Cookie' : locale === 'de' ? 'Cookie-Einstellungen' : 'Cookie Settings'}</a>
     </div>
     <p class="footer-text" style="margin-top:2rem;font-size:0.9rem;font-weight:600;color:var(--color-gold);">{t.footer.callToAction}</p>
     <p class="footer-text" style="margin-top:1rem;white-space:pre-line;">{t.footer.text}</p>

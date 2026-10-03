@@ -1,0 +1,104 @@
+---
+import TopicLayout from '../../layouts/TopicLayout.astro';
+
+const title = 'Qué Hacer en Ushuaia: Actividades, Excursiones y Turismo';
+const description =
+  'Qué hacer en Ushuaia: navegación por el Canal Beagle, Tren del Fin del Mundo, trekking en el parque nacional, avistaje de fauna, gastronomía fueguina y deportes de invierno. Guía práctica.';
+const path = '/es/que-hacer-en-ushuaia';
+
+const activities = [
+  {
+    name: 'Navegación por el Canal Beagle',
+    text: 'La actividad clásica. Las salidas desde el puerto permiten avistar lobos marinos, aves, el Faro Les Éclaireurs y, en temporada, colonias de pingüinos. Combiná la salida con una parada en la costanera frente a la Plaza Islas Malvinas.',
+  },
+  {
+    name: 'Tren del Fin del Mundo',
+    text: 'Un paseo en tren desde la entrada del Parque Nacional Tierra del Fuego que recrea el recorrido del antiguo tren penitenciario. Ideal para familias y para entrar al parque sin caminar largas distancias.',
+  },
+  {
+    name: 'Trekking y senderos en el parque nacional',
+    text: 'El Parque Nacional Tierra del Fuego ofrece senderos señalizados junto a bosques de lenga, turberas y la Bahía Encerrada. El sendero de la Cascada es accesible y muy frecuentado.',
+  },
+  {
+    name: 'Avistaje de fauna y fotografía',
+    text: 'Ushuaia es excelente para la observación de aves y vida marina. Llevá binoculares y abrigo cortaviento: el clima cambia rápido y el viento en la costanera es constante.',
+  },
+  {
+    name: 'Gastronomía fueguina',
+    text: 'Probá la centolla (centolla patagónica), el cordero fueguino al asador y el chocolate artesanal. La oferta se concentra en el centro y la costanera, a pocos minutos de la plaza.',
+  },
+  {
+    name: 'Deportes de invierno y nieve',
+    text: 'En temporada, la zona ofrece esquí y snowboard en cercanías de la ciudad, además de caminatas con raquetas y avistaje de paisajes blancos en el Glaciar Martial.',
+  },
+];
+
+const faqs = [
+  { q: '¿Qué actividades hacer en Ushuaia si voy pocos días?', a: 'Priorizá una navegación por el Canal Beagle y una visita al Parque Nacional Tierra del Mundo con el Tren del Fin del Mundo. Si te queda tiempo, sumá la Plaza Islas Malvinas, el Museo Marítimo y una caminata por la costanera.' },
+  { q: '¿Ushuaia es para turismo de naturaleza o aventura?', a: 'Ambos. Hay excursiones tranquilas (navegaciones, tren, museos) y opciones más activas (trekking, kayak, avistaje, deportes de invierno). La mayoría de las salidas parten del centro o del puerto.' },
+  { q: '¿Cuándo conviene visitar Ushuaia?', a: 'La temporada alta es el verano austral (diciembre a marzo), con días largos y mejor clima para navegaciones y trekking. El invierno (junio a septiembre) favorece la nieve y el turismo de invierno, pero el clima es más cerril.' },
+];
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+---
+
+<TopicLayout locale="es" title={title} description={description} path={path}>
+  <section class="section">
+    <div class="reveal">
+      <p class="section-label">Ushuaia</p>
+      <h1 class="section-title">Qué Hacer en Ushuaia</h1>
+      <div class="section-divider"></div>
+    </div>
+    <div class="reveal">
+      <p class="about-text">
+        Desde la <a href="/es" style="color:var(--color-gold);font-weight:600;">Plaza Islas Malvinas</a> y la costanera, Ushuaia abre a una de las agendas de actividades más densas de la Patagonia: navegaciones, trenes históricos, senderos subantárticos y gastronomía de extremo sur. Esta guía reúne las experiencias más representativas para planificar tu visita.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <div class="info-grid">
+        {
+          activities.map((a) => (
+            <div class="info-card">
+              <div class="info-card-title">{a.name}</div>
+              <div class="info-card-content" style="white-space:pre-line;">{a.text}</div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="reveal">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--color-deep);margin:3rem 0 1rem;">Cómo organizar tu visita</h2>
+      <p class="about-text">
+        Reservá con anticipación las navegaciones y el Tren del Fin del Mundo en temporada alta. Vestite por capas y llevá cortaviento: el viento en Ushuaia es parte de la experiencia. Para combinar memoriales e historia, empezá en la <a href="/es" style="color:var(--color-gold);font-weight:600;">Plaza Islas Malvinas</a> y seguí hacia los museos del centro.
+      </p>
+    </div>
+
+    <div class="reveal">
+      <h2 style="font-family:var(--font-display);font-size:1.4rem;color:var(--color-deep);margin:3rem 0 1rem;">Preguntas frecuentes</h2>
+      <div class="faq-list">
+        {
+          faqs.map((f) => (
+            <div class="faq-item expanded">
+              <div class="faq-question" style="cursor:default;">
+                <span style="color:var(--color-deep);font-weight:600;">{f.q}</span>
+              </div>
+              <div class="faq-answer"><p>{f.a}</p></div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top:3rem;text-align:center;">
+      <a href="/es/que-ver-en-ushuaia" style="color:var(--color-gold);font-weight:600;text-decoration:none;">→ Qué ver en Ushuaia: atracciones imprescindibles</a>
+    </div>
+  </section>
+
+  <script type="application/ld+json" is:inline set:html={JSON.stringify(faqLd)}></script>
+</TopicLayout>

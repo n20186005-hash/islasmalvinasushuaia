@@ -1,7 +1,7 @@
 // Plaza Islas Malvinas — 客户端交互（原生 JS，无框架）
 
-type AppLocale = 'es' | 'en' | 'zh' | 'it';
-const LOCALES: AppLocale[] = ['es', 'en', 'zh', 'it'];
+type AppLocale = 'es' | 'en' | 'zh' | 'it' | 'de';
+const LOCALES: AppLocale[] = ['es', 'en', 'zh', 'it', 'de'];
 
 // 主题切换
 const themeToggle = document.getElementById('theme-toggle');
@@ -182,18 +182,21 @@ if (weatherEl) {
     en: ['Low', 'Moderate', 'High', 'Very High', 'Extreme'],
     es: ['Bajo', 'Moderado', 'Alto', 'Muy Alto', 'Extremo'],
     it: ['Basso', 'Moderato', 'Alto', 'Molto Alto', 'Estremo'],
+    de: ['Niedrig', 'Mäßig', 'Hoch', 'Sehr Hoch', 'Extrem'],
   };
   const titles: Record<AppLocale, string> = {
     zh: '乌斯怀亚实时天气',
     en: 'Live Weather in Ushuaia',
     es: 'Clima en Ushuaia',
     it: 'Meteo a Ushuaia',
+    de: 'Wetter in Ushuaia',
   };
   const msgs: Record<AppLocale, (uv: string) => string> = {
     zh: (uv) => `当前紫外线指数：${uv}。乌斯怀亚靠近南极臭氧层空洞区域，即使在阴天紫外线也可能很强，请注意防护！`,
     en: (uv) => `Current UV Index: ${uv}. Ushuaia is near the Antarctic ozone hole region — UV can be strong even on cloudy days. Stay protected!`,
     es: (uv) => `Índice UV actual: ${uv}. Ushuaia está cerca de la región del agujero de ozono antártico — ¡protéjase incluso en días nublados!`,
     it: (uv) => `Indice UV attuale: ${uv}. Ushuaia è vicina alla regione del buco dell'ozono antartico — proteggiti anche nelle giornate nuvolose!`,
+    de: (uv) => `Aktueller UV-Index: ${uv}. Ushuaia liegt in der Nähe des antarktischen Ozonlochs — die UV-Strahlung kann auch an bewölkten Tagen stark sein. Schützen Sie sich!`,
   };
   const colors = ['#28a745', '#ffc107', '#fd7e14', '#dc3545', '#6f42c1'];
   fetch(

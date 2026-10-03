@@ -10,18 +10,20 @@ export interface Seo {
 export function getSeo(locale: string): Seo {
   const map: Record<string, Seo> = {
     es: {
-      title: 'Plaza Islas Malvinas — Memorial de Guerra en Ushuaia, Argentina',
+      title: 'Plaza Islas Malvinas en Ushuaia: Qué Ver, Historia y Cómo Llegar',
       description:
-        'Guía de la Plaza Islas Malvinas en Ushuaia, Tierra del Fuego, Argentina. Monumento a los caídos, llama eterna y espacio conmemorativo frente al Canal Beagle.',
-      ogTitle: 'Plaza Islas Malvinas — Memorial de Guerra en Ushuaia, Argentina',
+        'Guía de la Plaza Islas Malvinas en Ushuaia, Tierra del Fuego. Monumento a los caídos, llama eterna, historia de la Guerra de Malvinas y cómo llegar frente al Canal Beagle.',
+      ogTitle: 'Plaza Islas Malvinas en Ushuaia: Qué Ver, Historia y Cómo Llegar',
       ogDescription:
-        'Guía de la Plaza Islas Malvinas en Ushuaia. Monumento conmemorativo, cenotafio, llama eterna y memorial de la Guerra de Malvinas frente al Canal Beagle.',
+        'Guía de la Plaza Islas Malvinas en Ushuaia. Monumento a los caídos, llama eterna, historia y cómo llegar frente al Canal Beagle.',
       siteName: 'Guía de Plaza Islas Malvinas',
       keywords: [
         'Plaza Islas Malvinas',
         'Ushuaia',
         'Tierra del Fuego',
-        'Argentina tourism',
+        'qué ver en Ushuaia',
+        'qué hacer en Ushuaia',
+        'cómo llegar a Ushuaia',
         'Malvinas memorial',
         'Guerra de Malvinas',
         '马尔维纳斯广场',
@@ -88,6 +90,25 @@ export function getSeo(locale: string): Seo {
         '乌斯怀亚旅游',
         'monumento caduti',
         'fiamma eterna',
+      ],
+    },
+    de: {
+      title: 'Plaza Islas Malvinas in Ushuaia: Sehenswürdigkeiten, Geschichte & Anreise',
+      description:
+        'Reiseführer für die Plaza Islas Malvinas in Ushuaia, Feuerland, Argentinien. Mahnmal für die Gefallenen, Ewige Flamme, Geschichte des Malvinas-Krieges und Anreise an der Beagle-Küste.',
+      ogTitle: 'Plaza Islas Malvinas in Ushuaia: Sehenswürdigkeiten, Geschichte & Anreise',
+      ogDescription: 'Reiseführer für die Plaza Islas Malvinas. Mahnmal, Kenotaph, Ewige Flamme und Gedenken an den Malvinas-Krieg an der Beagle-Küste in Ushuaia.',
+      siteName: 'Reiseführer Plaza Islas Malvinas',
+      keywords: [
+        'Plaza Islas Malvinas',
+        'Ushuaia',
+        'Feuerland',
+        'Sehenswürdigkeiten Ushuaia',
+        'Aktivitäten in Ushuaia',
+        'Malvinas Denkmal',
+        'Malvinas Krieg',
+        'Beagle-Kanal',
+        'Ewige Flamme',
       ],
     },
   };

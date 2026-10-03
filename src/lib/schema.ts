@@ -8,7 +8,9 @@ export function generateSchema(locale: string, baseUrl: string) {
         ? '马尔维纳斯广场'
         : locale === 'it'
           ? 'Plaza Islas Malvinas'
-          : 'Plaza Islas Malvinas';
+          : locale === 'de'
+            ? 'Plaza Islas Malvinas'
+            : 'Plaza Islas Malvinas';
 
   const description =
     locale === 'es'
@@ -17,7 +19,9 @@ export function generateSchema(locale: string, baseUrl: string) {
         ? '阿根廷乌斯怀亚火地岛的马尔维纳斯广场（Plaza Islas Malvinas）。马尔维纳斯战争纪念碑、长明火与阵亡将士纪念广场。'
         : locale === 'it'
           ? 'Plaza Islas Malvinas a Ushuaia, Terra del Fuoco, Argentina. Memoriale della Guerra delle Malvinas con cenotafio e fiamma eterna.'
-          : 'Plaza Islas Malvinas in Ushuaia, Tierra del Fuego, Argentina. A Malvinas/Falklands War memorial with cenotaph and eternal flame.';
+          : locale === 'de'
+            ? 'Plaza Islas Malvinas in Ushuaia, Feuerland, Argentinien. Mahnmal für den Malvinas-Krieg mit Kenotaph und Ewiger Flamme.'
+            : 'Plaza Islas Malvinas in Ushuaia, Tierra del Fuego, Argentina. A Malvinas/Falklands War memorial with cenotaph and eternal flame.';
 
   return {
     '@context': 'https://schema.org',
@@ -74,7 +78,7 @@ export function generateSchema(locale: string, baseUrl: string) {
         url: localUrl,
         name,
         inLanguage:
-          locale === 'es' ? 'es-AR' : locale === 'zh' ? 'zh-CN' : locale === 'it' ? 'it-IT' : 'en-US',
+          locale === 'es' ? 'es-AR' : locale === 'zh' ? 'zh-CN' : locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : 'en-US',
         isAccessibleForFree: true,
         publisher: {
           '@type': 'Organization',

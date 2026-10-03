@@ -1,0 +1,109 @@
+---
+import '../styles/globals.css';
+import '../styles/additions.css';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  path: string;
+  ogTitle?: string;
+  ogDescription?: string;
+}
+
+const { locale, title, description, path, ogTitle, ogDescription } = Astro.props;
+const site = Astro.site ? Astro.site.href.replace(/\/$/, '') : 'https://islasmalvinasushuaia.com';
+const canonical = `${site}${path}`;
+const ogImage = `${site}/gallery/plaza-islands-malvinas-03.jpg`;
+const homePath = `/${locale}`;
+const footerLabels: Record<Locale, { privacy: string; terms: string; cookies: string; home: string; siteName: string }> = {
+  es: { privacy: 'Política de Privacidad', terms: 'Términos de Servicio', cookies: 'Configuración de Cookies', home: '← Volver al inicio', siteName: 'Guía de Plaza Islas Malvinas' },
+  en: { privacy: 'Privacy Policy', terms: 'Terms of Service', cookies: 'Cookie Settings', home: '← Back to home', siteName: 'Plaza Islas Malvinas Travel Guide' },
+  zh: { privacy: '隐私政策', terms: '服务条款', cookies: 'Cookie 设置', home: '← 返回首页', siteName: '马尔维纳斯广场旅行指南' },
+  it: { privacy: 'Informativa sulla Privacy', terms: 'Termini di Servizio', cookies: 'Impostazioni Cookie', home: '← Torna alla home', siteName: 'Guida di Plaza Islas Malvinas' },
+  de: { privacy: 'Datenschutz', terms: 'Nutzungsbedingungen', cookies: 'Cookie-Einstellungen', home: '← Zurück zur Startseite', siteName: 'Reiseführer Plaza Islas Malvinas' },
+};
+const fl = footerLabels[locale] || footerLabels.es;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      url: `${site}${homePath}`,
+      name: fl.siteName,
+      inLanguage: locale === 'es' ? 'es-AR' : locale === 'zh' ? 'zh-CN' : locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : 'en-US',
+      publisher: { '@type': 'Organization', name: 'Plaza Islas Malvinas Guide' },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: fl.siteName, item: `${site}${homePath}` },
+        { '@type': 'ListItem', position: 2, name: title, item: canonical },
+      ],
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={locale === 'zh' ? 'zh-CN' : locale === 'de' ? 'de' : locale === 'it' ? 'it' : locale === 'en' ? 'en' : 'es'}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="es" href={canonical} />
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:locale" content={locale === 'es' ? 'es_AR' : locale === 'zh' ? 'zh_CN' : locale === 'it' ? 'it_IT' : locale === 'de' ? 'de_DE' : 'en_US'} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={ogTitle || title} />
+    <meta property="og:description" content={ogDescription || description} />
+    <meta property="og:site_name" content={fl.siteName} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle || title} />
+    <meta name="twitter:description" content={ogDescription || description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#faf8f5" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#121212" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      is:inline
+      set:html={`(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();`}
+    ></script>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)}></script>
+  </head>
+  <body>
+    <header style="position:sticky;top:0;z-index:50;background:var(--color-cream);border-bottom:1px solid rgba(0,0,0,0.06);">
+      <div style="max-width:1100px;margin:0 auto;padding:0.9rem 1.5rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+        <a href={homePath} style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--color-deep);text-decoration:none;">Plaza Islas Malvinas</a>
+        <a href={homePath} style="font-size:0.9rem;font-weight:600;color:var(--color-gold);text-decoration:none;">{fl.home}</a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer style="background:var(--color-deep);color:rgba(255,255,255,0.7);padding:2.5rem 1.5rem;margin-top:3rem;">
+      <div style="max-width:1100px;margin:0 auto;display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center;font-size:0.85rem;">
+        <a href="/privacy" style="color:rgba(255,255,255,0.6);text-decoration:none;">{fl.privacy}</a>
+        <a href="/terms" style="color:rgba(255,255,255,0.6);text-decoration:none;">{fl.terms}</a>
+        <a href="/cookies" style="color:rgba(255,255,255,0.6);text-decoration:none;">{fl.cookies}</a>
+      </div>
+      <p style="text-align:center;font-size:0.8rem;margin-top:1.5rem;color:rgba(255,255,255,0.4);">© 2026 Guía de Plaza Islas Malvinas · Todos los derechos reservados.</p>
+    </footer>
+  </body>
+</html>

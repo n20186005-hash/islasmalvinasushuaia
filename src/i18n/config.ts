@@ -1,4 +1,4 @@
-export const locales = ['es', 'en', 'zh', 'it'] as const;
+export const locales = ['es', 'en', 'zh', 'it', 'de'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'es';
 
@@ -8,6 +8,7 @@ export const localeConfig: Record<Locale, { htmlLang: string; ogLocale: string }
   en: { htmlLang: 'en', ogLocale: 'en_US' },
   zh: { htmlLang: 'zh-CN', ogLocale: 'zh_CN' },
   it: { htmlLang: 'it', ogLocale: 'it_IT' },
+  de: { htmlLang: 'de', ogLocale: 'de_DE' },
 };
 
 export function getLangConfig(l: string): { htmlLang: string; ogLocale: string } {
